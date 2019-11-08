@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AddRecyclerView</string>
+    <string name="textview">TextView</string>
+    <string name="avengers">AVENGERS</string>
+</resources>
