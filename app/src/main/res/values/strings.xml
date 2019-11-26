@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">AddRecyclerView</string>
-    <string name="textview">TextView</string>
     <string name="avengers">AVENGERS</string>
+    <string name="button">Button</string>
+    <string name="textview">tvTitulo</string>
+    <string name="stop">STOP</string>
+    <string name="play">PLAY</string>
 </resources>

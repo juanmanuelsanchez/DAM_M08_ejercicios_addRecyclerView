@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String[] miListado = new String[]{"Steven \"Steve\" Rogers", "Anthony Edward \"Tony\" Stark", "Thor Odinson", "Henry Jonathan \"Hank\" Pym", "Janet van Dyne", "Dr. Robert Bruce Banner"
+    private String[] miListado = new String[]{"avengers","Steven \"Steve\" Rogers", "Anthony Edward \"Tony\" Stark", "Thor Odinson", "Henry Jonathan \"Hank\" Pym", "Janet van Dyne", "Dr. Robert Bruce Banner"
             , "Clinton Francis Barton", "Natasha Alianovna Romanoff", "T'Challa", "Stephen Vincent Strange"};
 
     @Override

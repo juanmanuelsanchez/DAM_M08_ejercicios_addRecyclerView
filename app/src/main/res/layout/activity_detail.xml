@@ -7,4 +7,26 @@
         android:layout_height="match_parent"
         tools:context=".DetailActivity">
 
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_play"
+            app:layout_constraintEnd_toStartOf="@+id/btn_stop" android:layout_marginBottom="275dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="25dp" app:layout_constraintBottom_toBottomOf="parent" android:text="@string/play"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_stop"
+            app:layout_constraintBaseline_toBaselineOf="@+id/btn_play"
+            app:layout_constraintStart_toEndOf="@+id/btn_play" android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent" android:text="@string/stop"/>
+    <TextView
+            android:text="@string/textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_titulo" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="169dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="175dp" android:layout_marginEnd="177dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
