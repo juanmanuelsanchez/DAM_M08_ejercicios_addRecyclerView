@@ -30,6 +30,8 @@ public class DetailActivity extends AppCompatActivity {
         int resID = getResources().getIdentifier(item, "raw", getPackageName());
         mp = MediaPlayer.create(this, resID);
 
+        //TODO: revisa implementación para parar la reproducción
+        // y volver a reanudarla.
         botonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
