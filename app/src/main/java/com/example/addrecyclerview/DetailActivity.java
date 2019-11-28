@@ -35,7 +35,9 @@ public class DetailActivity extends AppCompatActivity {
         botonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mp.start();
+                if (!mp.isPlaying()){
+                    mp.start();
+                }
             }
         });
 
@@ -43,6 +45,11 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mp.stop();
+                try{
+                    mp.prepare();
+                }catch (Exception e){
+                    System.out.println("Error: " + e.getMessage());
+                }
             }
         });
     }

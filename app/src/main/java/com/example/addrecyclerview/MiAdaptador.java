@@ -10,15 +10,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 public  class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MyViewHolder>{
     public static final String ITEM_ID_KEY = "item_id_key";
     private String[]listado;
     private Context mContext;
 
 
+
     static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView textView;
         View mView;
+
         MyViewHolder(View view) {
             super(view);
             textView = view.findViewById(R.id.listado_alumnos);
@@ -42,11 +45,10 @@ public  class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MyViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MiAdaptador.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MiAdaptador.MyViewHolder holder, int position) {
         final String itemString = this.listado[position];
         holder.textView.setText(this.listado[position]);
         holder.mView.setOnClickListener(new View.OnClickListener() {
-
 
             @Override
             public void onClick(View v) {
