@@ -5,4 +5,6 @@
     <string name="textview">tvTitulo</string>
     <string name="stop">STOP</string>
     <string name="play">PLAY</string>
+    <string name="listado_de_m_sica">Listado de música</string>
+    <string name="pause">PAUSE</string>
 </resources>

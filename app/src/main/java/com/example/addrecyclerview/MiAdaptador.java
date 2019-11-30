@@ -13,12 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 public  class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MyViewHolder>{
-    public static final String ITEM_ID_KEY = "item_id_key";
     private String[]listado;
     private Context mContext;
-    private int selectedItem = 0;//
-
-
+    private int selectedItem = 0;
 
     static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView textView;
@@ -35,7 +32,7 @@ public  class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MyViewHolder>
 
         this.listado = miListado;
         this.mContext = context;
-        this.selectedItem = selectedItem;//
+        this.selectedItem = selectedItem;
     }
 
     @NonNull
@@ -51,27 +48,13 @@ public  class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MyViewHolder>
     public void onBindViewHolder(@NonNull final MiAdaptador.MyViewHolder holder, final int position) {
         final String itemString = this.listado[position];
         holder.textView.setText(this.listado[position]);
-        /*if (selectedItem == position){//
-            holder.textView.setBackgroundColor(Color.parseColor("#30000000"));
-        }else {
-            holder.textView.setBackgroundColor(Color.parseColor("#00000000"));
-        }*/
-        holder.textView.setBackgroundColor(Color.parseColor("#00000000"));
-        holder.mView.setOnClickListener(new View.OnClickListener() {
 
+        holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectedItem = position;
                 System.out.println("Click!");
-                holder.textView.setBackgroundColor(Color.parseColor("#30000000"));//
-               /* for (int i = 0; i < listado.length; i++){
-                    if (selectedItem == position){
-                        holder.textView.setBackgroundColor(Color.parseColor("#30000000"));
-                    }else {
-                        holder.textView.setBackgroundColor(Color.parseColor("#00000000"));
-                    }
-                }*/
-              //Toast.makeText(mContext, "You selected "+ item, Toast.LENGTH_LONG).show();
+                holder.textView.setBackgroundColor(Color.parseColor("#30000000"));
                 Intent intent = new Intent(mContext, DetailActivity.class);
                 intent.putExtra("nombre", itemString);
                 mContext.startActivity(intent);
@@ -81,7 +64,6 @@ public  class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MyViewHolder>
 
     @Override
     public int getItemCount() {
-        System.out.println(listado.length);
         return listado.length;
     }
 }

@@ -10,33 +10,44 @@ import android.os.Bundle;
 
 public class DetailActivity extends AppCompatActivity {
     private MediaPlayer mp;
-
+    boolean isPaused = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         Button botonPlay = findViewById(R.id.btn_play);
+        Button botonPause = findViewById(R.id.btn_pause);
         Button botonStop = findViewById(R.id.btn_stop);
         TextView titulo = findViewById(R.id.tv_titulo);
 
 
 
-        //String itemId = getIntent().getExtras().getString(MiAdaptador.ITEM_ID_KEY);
         String item = getIntent().getExtras().getString("nombre");
-        Toast.makeText(this, "Received item: " + item, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Received item: " + item, Toast.LENGTH_SHORT).show();
         titulo.setText(item);
-        //mp = MediaPlayer.create(this, R.raw.batman);
         int resID = getResources().getIdentifier(item, "raw", getPackageName());
         mp = MediaPlayer.create(this, resID);
 
-        //TODO: revisa implementación para parar la reproducción
-        // y volver a reanudarla.
         botonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!mp.isPlaying()){
                     mp.start();
+                }
+                if (isPaused){
+                    mp.start();
+                }
+                isPaused = false;
+            }
+        });
+
+        botonPause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mp.isPlaying()){
+                    mp.pause();
+                    isPaused = true;
                 }
             }
         });
@@ -44,11 +55,23 @@ public class DetailActivity extends AppCompatActivity {
         botonStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mp.stop();
-                try{
-                    mp.prepare();
-                }catch (Exception e){
-                    System.out.println("Error: " + e.getMessage());
+                if (mp.isPlaying()){
+                    mp.stop();
+                    isPaused = false;
+                    try{
+                        mp.prepare();
+                    }catch (Exception e){
+                        System.out.println("Error: " + e.getMessage());
+                    }
+                }
+                if (isPaused){
+                    mp.stop();
+                    isPaused = false;
+                    try{
+                        mp.prepare();
+                    }catch (Exception e){
+                        System.out.println("Error: " + e.getMessage());
+                    }
                 }
             }
         });
