@@ -2,6 +2,7 @@ package com.example.addrecyclerview;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ public  class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MyViewHolder>
     public static final String ITEM_ID_KEY = "item_id_key";
     private String[]listado;
     private Context mContext;
+    private int selectedItem = 0;//
 
 
 
@@ -29,10 +31,11 @@ public  class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MyViewHolder>
         }
     }
 
-    MiAdaptador(Context context, String[] miListado){
+    MiAdaptador(Context context, String[] miListado, int selectedItem){
 
         this.listado = miListado;
         this.mContext = context;
+        this.selectedItem = selectedItem;//
     }
 
     @NonNull
@@ -45,14 +48,29 @@ public  class MiAdaptador extends RecyclerView.Adapter<MiAdaptador.MyViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final MiAdaptador.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MiAdaptador.MyViewHolder holder, final int position) {
         final String itemString = this.listado[position];
         holder.textView.setText(this.listado[position]);
+        /*if (selectedItem == position){//
+            holder.textView.setBackgroundColor(Color.parseColor("#30000000"));
+        }else {
+            holder.textView.setBackgroundColor(Color.parseColor("#00000000"));
+        }*/
+        holder.textView.setBackgroundColor(Color.parseColor("#00000000"));
         holder.mView.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-              System.out.println("Click!");
+                selectedItem = position;
+                System.out.println("Click!");
+                holder.textView.setBackgroundColor(Color.parseColor("#30000000"));//
+               /* for (int i = 0; i < listado.length; i++){
+                    if (selectedItem == position){
+                        holder.textView.setBackgroundColor(Color.parseColor("#30000000"));
+                    }else {
+                        holder.textView.setBackgroundColor(Color.parseColor("#00000000"));
+                    }
+                }*/
               //Toast.makeText(mContext, "You selected "+ item, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(mContext, DetailActivity.class);
                 intent.putExtra("nombre", itemString);

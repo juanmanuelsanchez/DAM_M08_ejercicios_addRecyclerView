@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         //Se define un adaptador.
-        RecyclerView.Adapter adaptador = new MiAdaptador(this, miListado);
+        RecyclerView.Adapter adaptador = new MiAdaptador(this, miListado, 0);//
         recyclerView.setAdapter(adaptador);
     }
 }
