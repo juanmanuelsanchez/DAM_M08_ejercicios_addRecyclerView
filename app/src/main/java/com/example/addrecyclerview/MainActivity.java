@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    //private String[] miListado = new String[]{"avengers","fear_will_find_you","peace_frog", "why_do_we_fall"};
     private String[] miListado = new String[]{"The Avengers | Alan Silvestri | 2:03","Fear will find you | Hans Zimmer | 3:07","Peace frog | The Doors | 2:48", "Why do we fall? | Hans Zimmer | 2:03"};
     private ArrayList<Integer> misCanciones = new ArrayList<>();
 

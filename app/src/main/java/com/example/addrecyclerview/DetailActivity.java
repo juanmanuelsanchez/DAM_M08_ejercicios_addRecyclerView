@@ -7,7 +7,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-
 import java.util.Objects;
 
 public class DetailActivity extends AppCompatActivity {
@@ -22,7 +21,6 @@ public class DetailActivity extends AppCompatActivity {
         Button botonPause = findViewById(R.id.btn_pause);
         Button botonStop = findViewById(R.id.btn_stop);
         TextView titulo = findViewById(R.id.tv_titulo);
-
 
 
         String item = Objects.requireNonNull(getIntent().getExtras()).getString("nombre");
