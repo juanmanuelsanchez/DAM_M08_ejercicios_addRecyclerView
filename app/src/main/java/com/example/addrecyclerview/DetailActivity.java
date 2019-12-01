@@ -8,9 +8,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import java.util.Objects;
+
 public class DetailActivity extends AppCompatActivity {
     private MediaPlayer mp;
-    boolean isPaused = false;
+    private boolean isPaused = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +25,11 @@ public class DetailActivity extends AppCompatActivity {
 
 
 
-        String item = getIntent().getExtras().getString("nombre");
+        String item = Objects.requireNonNull(getIntent().getExtras()).getString("nombre");
+        int numero = getIntent().getExtras().getInt("numero");
         Toast.makeText(this, "Received item: " + item, Toast.LENGTH_SHORT).show();
         titulo.setText(item);
-        int resID = getResources().getIdentifier(item, "raw", getPackageName());
-        mp = MediaPlayer.create(this, resID);
+        mp = MediaPlayer.create(this, numero);
 
         botonPlay.setOnClickListener(new View.OnClickListener() {
             @Override
